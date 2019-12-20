@@ -42,13 +42,13 @@ Page({
       cateItems:categories[0]
     })
     }
-  },
-  // 每当页面显示的时候 ，让类目还原到第一个
-  onShow(e){
-    this.setData({
-      toTop:0,
-      choseIndex:0,
-       cateItems:wx.getStorageSync('categories')[0]||[],
-    })
   }
+  // 每当页面显示的时候 ，让类目还原到第一个
+  // onShow(e){
+  //   this.setData({
+  //     toTop:0,
+  //     choseIndex:0,
+  //      cateItems:wx.getStorageSync('categories')[0]||[],
+  //   })
+  // }
 })

@@ -14,6 +14,13 @@ Page({
     //楼层数据
     floordata:[]
   },
+  //点击按钮返回顶部
+  toTop(){
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    });
+  },
   //当页面一打开就马上发送请求，获取数据用来渲染页面
   async onLoad(){
     let swiperdata= await app.myAxios({

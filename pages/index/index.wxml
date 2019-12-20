@@ -31,3 +31,8 @@
     </block>
   </view>
 </block>
+<!-- 右下角返回顶部按钮 -->
+<view class="toTop" bind:tap="toTop">
+  <icon class="iconfont .icon-jiantoushang" />
+  <text >顶部</text>
+</view>
