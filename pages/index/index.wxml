@@ -1,0 +1,33 @@
+<!-- 引入封装的头部搜索框组件 -->
+<search></search>
+<!-- 轮播图部分 -->
+<swiper class="swiper" indicator-dots indicator-active-color="white" autoplay circular>
+  <block wx:for="{{swiperdata}}" wx:key="goods_id">
+    <navigator class="" url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+      <swiper-item>
+        <image class="swiper-img" mode="widthFix" lazy-load src="{{item.image_src}}" />
+      </swiper-item>
+    </navigator>
+  </block>
+</swiper>
+<!-- 分类信息部分 -->
+<view class="catitems">
+  <block wx:for="{{catitems}}" wx:key="name">
+    <navigator class="catitems-link" url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+      <image lazy-load mode="widthFix" class="catitems-link-img" src="{{item.image_src}}" />
+    </navigator>
+  </block>
+</view>
+<!-- 楼层信息 -->
+<block wx:for="{{floordata}}" wx:key="name">
+  <view class="floor-title">
+    <image mode="widthFix" lazy-load src="{{item.floor_title.image_src}}" />
+  </view>
+  <view class="floor-content">
+    <block wx:for="{{item.product_list}}" wx:for-item="item2" wx:key="name">
+      <navigator class="floor-link" url="{{item2.navigator_url}}" open-type="{{item2.open_type}}">
+        <image src="{{item2.image_src}}" lazy-load style="width:{{item2.image_width}}rpx;"/>
+      </navigator>
+    </block>
+  </view>
+</block>

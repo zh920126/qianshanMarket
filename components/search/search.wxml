@@ -1,0 +1,7 @@
+<!-- 这里是search搜索框组件 -->
+<navigator class="search" url="/pages/search/index">
+  <view class="box">
+    <icon type="search" />
+    <text>搜索</text>
+  </view>
+</navigator>
