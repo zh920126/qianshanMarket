@@ -1,2 +1,26 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<!-- 引入封装好的头部搜索框组件 -->
+<search></search>
+<view class="category">
+  <!-- 左边滑动框 -->
+  <scroll-view class="category-left" scroll-y>
+    <block wx:for="{{categories}}" wx:key="cat_id">
+      <view class="left {{index===choseIndex?'onTap':''}}" bind:tap="choseCate" data-index="{{index}}">
+      {{item.cat_name}}
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 右边滑动框 -->
+  <scroll-view class="category-right" scroll-y scroll-top="{{toTop}}">
+    <block wx:for="{{cateItems.children}}" wx:for-item="item2" wx:key="cat_id">
+      <view class="right-title">{{item2.cat_name}}</view>
+      <view class="right-content">
+        <block wx:for="{{item2.children}}" wx:for-item="item3" wx:key="cat_pid">
+          <navigator class="right-link" url="/pages/goods_list/index?query={{item3.cat_name}}&pid={{item3.cat_id}}">
+            <image lazy-load mode="widthFix" src="{{item3.cat_icon}}" />
+            <text >{{item3.cat_name}}</text>
+          </navigator>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view>
