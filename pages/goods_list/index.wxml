@@ -1,2 +1,35 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<!-- 头部搜索框 -->
+<navigator class="search" url="/pages/search/index">
+  <view class="box">
+    <icon type="search" />
+    <text>{{query}}</text>
+  </view>
+</navigator>
+<!-- 顶部筛选组件 -->
+<view class="fliter">
+  <view class="synthesize">综合</view>
+  <view class="sales">销量</view>
+  <view class="price">
+    价格
+    <view class="icons">
+      <icon class="iconfont icon-shangsanjiaoxing" />
+      <icon class="iconfont icon-xiasanjiaoxing" />
+    </view>
+  </view>
+</view>
+<!-- 商品信息列表 -->
+<block wx:for="{{goodsList}}" wx:key="cat_id">
+  <view class="goods-list">
+  <navigator >
+    <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+    <view class="good_info">
+      <view class="good-title">
+      {{item.goods_name}}
+      </view>
+      <view class="good-price">
+        {{item.goods_price}}
+      </view>
+    </view>
+  </navigator>
+</view>
+</block>

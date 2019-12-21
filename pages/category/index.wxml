@@ -15,7 +15,7 @@
       <view class="right-title">{{item2.cat_name}}</view>
       <view class="right-content">
         <block wx:for="{{item2.children}}" wx:for-item="item3" wx:key="cat_pid">
-          <navigator class="right-link" url="/pages/goods_list/index?query={{item3.cat_name}}&pid={{item3.cat_id}}">
+          <navigator class="right-link" url="/pages/goods_list/index?query={{item3.cat_name}}&cid={{item3.cat_id}}">
             <image lazy-load mode="widthFix" src="{{item3.cat_icon}}" />
             <text >{{item3.cat_name}}</text>
           </navigator>

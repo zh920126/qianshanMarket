@@ -19,7 +19,9 @@
     "navigationBarBackgroundColor": "#eb4450",
     "navigationBarTitleText": "千山特产",
     "navigationBarTextStyle": "white",
-    "backgroundColor":"#fff"
+    "backgroundColor":"#eee",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":50
   },
   "tabBar":{
     "color":"#333",
