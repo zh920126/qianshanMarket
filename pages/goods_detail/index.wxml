@@ -1,2 +1,33 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<!-- 顶部轮播图 -->
+<swiper class="swiper" indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="#000" circular autoplay>
+  <block wx:for="{{goodDetail.pics}}" wx:key="cat_id">
+    <swiper-item class="swiper-item">
+      <image lazy-load mode="widthFix" src="{{item.pics_mid || 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 价格栏 -->
+<view class="price">￥{{goodDetail.goods_price}}</view>
+<!-- 商品名称栏 -->
+<view class="good-title">
+  <view class="title">{{goodDetail.goods_name}}</view>
+  <view class="collect">
+    <icon class="iconfont icon-collection" />
+    <text>收藏</text>
+  </view>
+</view>
+<!-- 快递栏 -->
+<view class="good-express">
+  快递:
+  <text>免运费</text>
+</view>
+<!-- 是否有促销活动栏 -->
+<view class="promotion">
+  <view class="is-promotion" wx:if="{{goodDetail.is_del!=='0'}}">
+    促销:
+    <text>满300减{{goodDetail.is_del}}</text>
+  </view>
+  <view class="not-promotion" wx:else>此商品暂无促销活动</view>
+</view>
+<!-- 商品详情 -->
+<rich-text class="" nodes="{{goodDetail.goods_introduce}}"></rich-text>

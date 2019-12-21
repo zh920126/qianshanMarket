@@ -1,1 +1,78 @@
 /* pages/goods_detail/index.wxss */
+.swiper {
+  width: 100%;
+  height: 500rpx;
+}
+.swiper .swiper-item {
+  display: flex;
+  justify-content: center;
+}
+.swiper .swiper-item image {
+  width: 400rpx;
+}
+.price {
+  height: 120rpx;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 38rpx;
+  color: #eb4500;
+}
+.good-title {
+  height: 82rpx;
+  display: flex;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.good-title .title {
+  width: 600rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  border-right: 1rpx solid #eee;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.good-title .collect {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+.good-express {
+  padding-left: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #999;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.good-express text {
+  margin-left: 35rpx;
+}
+.promotion {
+  padding-left: 20rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #333;
+  border-bottom: 20rpx solid #f4f4f4;
+}
+.promotion .is-promotion {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.promotion .is-promotion text {
+  color: #eb4500;
+}
+.promotion .not-promotion {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
