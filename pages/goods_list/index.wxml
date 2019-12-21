@@ -20,7 +20,7 @@
 <!-- 商品信息列表 -->
 <block wx:for="{{goodsList}}" wx:key="cat_id">
   <view class="goods-list">
-  <navigator >
+  <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
     <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
     <view class="good_info">
       <view class="good-title">
