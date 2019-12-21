@@ -23,7 +23,7 @@
 </view>
 <!-- 是否有促销活动栏 -->
 <view class="promotion">
-  <view class="is-promotion" wx:if="{{goodDetail.is_del!=='0'}}">
+  <view class="is-promotion" wx:if="{{goodDetail.is_del!='0'}}">
     促销:
     <text>满300减{{goodDetail.is_del}}</text>
   </view>
@@ -31,3 +31,20 @@
 </view>
 <!-- 商品详情 -->
 <rich-text class="" nodes="{{goodDetail.goods_introduce}}"></rich-text>
+<!-- 底部按钮栏 -->
+<view class="btns">
+  <button class="kefu" open-type="contact">
+    <icon class="iconfont icon-kefu" />
+    <text >联系客服</text>
+  </button>
+  <button class="share" open-type="share">
+    <icon class="iconfont icon-fenxiang-1" />
+    <text >分享</text>
+  </button>
+  <button class="cart">
+    <icon class="iconfont icon-gouwuche" />
+    <text >购物车</text>
+  </button>
+  <button class="joincart">加入购物车</button>
+  <button class="buy">立即购买</button>
+</view>

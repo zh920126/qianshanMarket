@@ -15,10 +15,10 @@ Page({
     let goodDetail=await app.myAxios({
       url:"/goods/detail",
       data:{
-        goods_id:129
+        goods_id
       }
     })
-    console.log(goodDetail);
+    // console.log(goodDetail);
     this.setData({goodDetail})
   }
 })
