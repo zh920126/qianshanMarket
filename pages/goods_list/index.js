@@ -62,12 +62,12 @@ Page({
   },
   //上啦加载更多
   onReachBottom(){
-    ++this.data.pagenum
     // console.log(this.data.pagenum);
     // console.log(this.data.total);
     //调用封装的函数
     if(this.data.goodsList.length<this.data.total){
       //如果成立，表示还有数据没有获取完
+      ++this.data.pagenum
       this.getGoodsList(this.data.query,this.data.cid,this.data.pagenum,this.data.pagesize)
     }else{
       //提示用户没有更多数据了
@@ -87,5 +87,12 @@ Page({
     })
     //调用封装的函数
     this.getGoodsList(this.data.query,this.data.cid,1,4)
-  }
+  },
+    //点击按钮返回顶部
+    toTop(){
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
+      });
+    }
 })

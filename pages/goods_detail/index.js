@@ -92,5 +92,12 @@ Page({
     })
     // console.log(goodDetail);
     this.setData({goodDetail})
+  },
+  //点击按钮返回顶部
+  toTop(){
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    });
   }
 })

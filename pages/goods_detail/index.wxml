@@ -31,7 +31,7 @@
   <view class="not-promotion" wx:else>此商品暂无促销活动</view>
 </view>
 <!-- 商品详情 -->
-<rich-text class="" nodes="{{goodDetail.goods_introduce}}"></rich-text>
+<rich-text class="content" nodes="{{goodDetail.goods_introduce}}"></rich-text>
 <!-- 底部按钮栏 -->
 <!-- <view class="btns">
   <button class="kefu" open-type="contact">
@@ -77,4 +77,9 @@
   <view class="buy" bind:tap="buy">
     立即购买
   </view>
+</view>
+<!-- 右下角返回顶部按钮 -->
+<view class="toTop" bind:tap="toTop">
+  <icon class="iconfont .icon-jiantoushang" />
+  <text >顶部</text>
 </view>
