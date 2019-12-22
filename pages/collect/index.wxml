@@ -5,3 +5,11 @@
     <view bind:tap="choseItem" data-index="{{index}}" class="{{index===isShow?'col':''}}">{{item.name}}</view>
   </block>
 </view>
+<!-- 全部收藏部分 -->
+<view class="all">
+  <block wx:for="{{all}}" wx:key="name">
+    <view bind:tap="choseCollect" data-index="{{index}}" class="all-item {{index===showRed?'col-all':''}}">
+      {{item.name}}
+    </view>
+  </block>
+</view>
