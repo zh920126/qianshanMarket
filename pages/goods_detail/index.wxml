@@ -2,7 +2,7 @@
 <swiper class="swiper" indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="#000" circular autoplay>
   <block wx:for="{{goodDetail.pics}}" wx:key="cat_id">
     <swiper-item class="swiper-item">
-      <image lazy-load mode="widthFix" src="{{item.pics_mid || 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+      <image bind:tap="showBigImage" data-index="{{index}}" lazy-load mode="widthFix" src="{{item.pics_mid || 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
     </swiper-item>
   </block>
 </swiper>
