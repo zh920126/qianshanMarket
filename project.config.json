@@ -73,6 +73,13 @@
 					"id": -1,
 					"name": "pages/collect/index",
 					"pathName": "pages/collect/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/index",
+					"pathName": "pages/cart/index",
 					"scene": null
 				}
 			]

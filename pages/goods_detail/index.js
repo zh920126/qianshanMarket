@@ -27,6 +27,7 @@ Page({
   },
   //点击收藏时，将获取到的商品的信息存到本地存储中去
   collectGoods(e){
+    //显示不同的类样式
     this.setData({
       isShow:!this.data.isShow
     })
@@ -35,7 +36,9 @@ Page({
       wx.showToast({
         title: '收藏成功',
         icon: 'success',
-        duration: 1000
+        duration: 1000,
+        // 添加隔罩层
+        mask:true
       })
       //当收藏成功时，将数据存储到本地存储中去,先获取本地存储中的数据，然后追加，再存进去
       let arr=wx.getStorageSync('collect')||[]
@@ -46,7 +49,8 @@ Page({
       wx.showToast({
         title: '取消成功',
         icon: 'success',
-        duration: 1000
+        duration: 1000,
+        mask:true
       })
       //取消收藏时，将本地存储中的数据先拉取出来，删除掉对应的项，然后再存回去
       let arr=wx.getStorageSync('collect');
@@ -56,17 +60,38 @@ Page({
   },
   //点击加入购物车时，将数据追加到本地存储中去
   addCart(){
-    // console.log(123);
-    //先获取本地存储中的数据，然后追加
-    let arr=wx.getStorageSync('cart')||[]
-    // 将数据追加进去，然后再存起来
-    arr.push(this.data.goodDetail)
+  //先将需要获取的数据结构出来
+    let {goods_id,goods_name,goods_price,goods_big_logo,goods_small_logo}=this.data.goodDetail
+    //点击按钮时，先获取本地存储中的数据
+    let arr= wx.getStorageSync('cart')||[]
+    //根据商品的ID进行判断，如果已经添加了的，就直接加一个数量
+    let index= arr.findIndex(item=>{
+      return item.goods_id===goods_id
+    })
+    //进行判定
+    if(index===-1){
+      //判定没有数据的时候就追加一个新对象
+      arr.push({
+        goods_id,
+        goods_name,
+        goods_price,
+        goods_big_logo,
+        goods_small_logo,
+        goods_count:1
+      })
+    }else{
+      //否则就是里面的项已经有了的，就不额外增加一项，只是在家一个数量
+      arr[index].goods_count++
+    }
+    //然后将新的数据存起来
     wx.setStorageSync('cart',arr)
-    //同时提示用户
+    //提示用户加入购物车成功
     wx.showToast({
-      title:"加入购物车成功",
+      title:'加入购物车成功',
       icon:'success',
-      duration:1000
+      duration:1500,
+      // 添加隔罩层，防止用户连续快速点击
+      mask:true
     })
   },
   //点击立即购买时,将数据追加过去,然后跳转到订单页面
