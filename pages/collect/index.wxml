@@ -1,2 +1,7 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<!-- 收藏页面 -->
+<!-- 顶部tab栏 -->
+<view class="collect-top">
+  <block wx:for="{{collect}}" wx:key="name">
+    <view bind:tap="choseItem" data-index="{{index}}" class="{{index===isShow?'col':''}}">{{item.name}}</view>
+  </block>
+</view>
