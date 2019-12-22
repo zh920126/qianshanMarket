@@ -115,6 +115,13 @@ Page({
         goods_id
       }
     })
+    //检查是什么操作系统
+    let {platform}=wx.getSystemInfoSync();
+    // console.log(res);
+    //如果是IOS系统的（因为ios无法识别webp格式的图片），需要对无法识别的图片进行替换
+    if(platform==="ios"){
+      goodDetail.goods_introduce=goodDetail.goods_introduce.replace(/\?.+?webp/g,'')
+    }
     // console.log(goodDetail);
     this.setData({goodDetail})
   },
