@@ -41,7 +41,7 @@ Page({
     // this.data.goodsList.push(...newList)
     //将获取到的数据赋值给data
     this.setData({
-      // goodsList:this.goodsList.push(...newList),
+      // goodsList:this.data.goodsList.push(...newList),
       goodsList:this.data.a,
       total:goodsList.total
     })

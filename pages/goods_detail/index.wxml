@@ -11,7 +11,7 @@
 <!-- 商品名称栏 -->
 <view class="good-title">
   <view class="title">{{goodDetail.goods_name}}</view>
-  <view class="collect">
+  <view class="collect" bind:tap="collectGoods">
     <icon class="iconfont icon-collection" />
     <text>收藏</text>
   </view>
@@ -32,7 +32,7 @@
 <!-- 商品详情 -->
 <rich-text class="" nodes="{{goodDetail.goods_introduce}}"></rich-text>
 <!-- 底部按钮栏 -->
-<view class="btns">
+<!-- <view class="btns">
   <button class="kefu" open-type="contact">
     <icon class="iconfont icon-kefu" />
     <text >联系客服</text>
@@ -47,4 +47,33 @@
   </button>
   <button class="joincart">加入购物车</button>
   <button class="buy">立即购买</button>
+</view> -->
+<view class="btns">
+<!-- 客服 -->
+  <view class="kefu">
+    <icon class="iconfont icon-kefu" />
+    <text >联系客服</text>
+    <button open-type="contact"></button>
+  </view>
+  <!-- 分享 -->
+  <view class="share">
+    <icon class="iconfont icon-fenxiang-1" />
+    <text >分享</text>
+    <button open-type="share"></button>
+  </view>
+  <!-- 购物车 -->
+  <view class="cart" bind:tap="toCart">
+    <navigator url="/pages/cart/index" open-type="switchTab" hover-class="none" hover-stop-propagation>
+    <icon class="iconfont icon-gouwuche" />
+    <text >购物车</text>
+    </navigator>
+  </view>
+  <!-- 加入购物车 -->
+  <view class="addCart">
+    加入购物车
+  </view>
+  <!-- 立即购买 -->
+  <view class="buy">
+    立即购买
+  </view>
 </view>
