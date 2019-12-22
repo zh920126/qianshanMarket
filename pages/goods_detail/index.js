@@ -54,6 +54,21 @@ Page({
       wx.setStorageSync('collect', arr);
     }
   },
+  //点击加入购物车时，将数据追加到本地存储中去
+  addCart(){
+    // console.log(123);
+    //先获取本地存储中的数据，然后追加
+    let arr=wx.getStorageSync('cart')||[]
+    // 将数据追加进去，然后再存起来
+    arr.push(this.data.goodDetail)
+    wx.setStorageSync('cart',arr)
+    //同时提示用户
+    wx.showToast({
+      title:"加入购物车成功",
+      icon:'success',
+      duration:1000
+    })
+  },
   //打开页面就需要获取到商品的ID，进行数据的获取
   async onLoad(options){
     let{goods_id}=options
