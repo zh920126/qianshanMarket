@@ -57,5 +57,9 @@ Page({
     this.setData({
       collectList:arr
     })
+  },
+  //开启下拉刷新
+  onPullDownRefresh(){
+      this.onLoad()
   }
 })

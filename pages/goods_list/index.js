@@ -77,5 +77,15 @@ Page({
         duration: 1000
       })
     }
+  },
+  //下拉刷新
+  onPullDownRefresh(){
+    //下拉刷新时将所有的数据初始化
+    this.setData({
+      goodsList:[],
+      a:[]
+    })
+    //调用封装的函数
+    this.getGoodsList(this.data.query,this.data.cid,1,4)
   }
 })
