@@ -69,6 +69,17 @@ Page({
       duration:1000
     })
   },
+  //点击立即购买时,将数据追加过去,然后跳转到订单页面
+  buy(){
+    //点击时，将数据存储到本地储存中去
+    let arr=[]
+    arr.push(this.data.goodDetail)
+    wx.setStorageSync('buy',arr)
+    //跳转到订单页面
+    wx.navigateTo({
+      url: '/pages/order/index'
+    });
+  },
   //打开页面就需要获取到商品的ID，进行数据的获取
   async onLoad(options){
     let{goods_id}=options
