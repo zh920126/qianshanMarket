@@ -37,6 +37,9 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.good-title .red {
+  color: #eb4500;
+}
 .good-title .collect {
   flex: 1;
   display: flex;
@@ -84,6 +87,7 @@
   left: 0;
   bottom: 0;
   border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
 .btns view {
   display: flex;

@@ -6,7 +6,9 @@ import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
   data:{
     //定义变量用于页面的渲染
-    goodDetail:{}
+    goodDetail:{},
+    //用于显示收藏按钮
+    isShow:true
   },
   //点击轮播图上的图片，显示大图
   showBigImage(e){
@@ -23,6 +25,35 @@ Page({
       urls:newList
     });
   },
+  //点击收藏时，将获取到的商品的信息存到本地存储中去
+  collectGoods(e){
+    this.setData({
+      isShow:!this.data.isShow
+    })
+    if(!this.data.isShow){
+      //提示用户
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        duration: 1000
+      })
+      //当收藏成功时，将数据存储到本地存储中去,先获取本地存储中的数据，然后追加，再存进去
+      let arr=wx.getStorageSync('collect')||[]
+      arr.push(this.data.goodDetail)
+      // console.log(arr);
+      wx.setStorageSync('collect', arr);
+    }else{
+      wx.showToast({
+        title: '取消成功',
+        icon: 'success',
+        duration: 1000
+      })
+      //取消收藏时，将本地存储中的数据先拉取出来，删除掉对应的项，然后再存回去
+      let arr=wx.getStorageSync('collect');
+      arr.pop()
+      wx.setStorageSync('collect', arr);
+    }
+  },
   //打开页面就需要获取到商品的ID，进行数据的获取
   async onLoad(options){
     let{goods_id}=options
@@ -30,7 +61,7 @@ Page({
     let goodDetail=await app.myAxios({
       url:"/goods/detail",
       data:{
-        goods_id:129
+        goods_id
       }
     })
     // console.log(goodDetail);

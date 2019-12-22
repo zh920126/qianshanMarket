@@ -12,7 +12,8 @@
 <view class="good-title">
   <view class="title">{{goodDetail.goods_name}}</view>
   <view class="collect" bind:tap="collectGoods">
-    <icon class="iconfont icon-collection" />
+    <icon wx:if="{{isShow===true}}" class="iconfont icon-collection" />
+    <icon wx:if="{{isShow===false}}" class="iconfont icon-shoucang red" />
     <text>收藏</text>
   </view>
 </view>
@@ -69,7 +70,7 @@
     </navigator>
   </view>
   <!-- 加入购物车 -->
-  <view class="addCart">
+  <view class="addCart" bind:tap="addCart">
     加入购物车
   </view>
   <!-- 立即购买 -->
