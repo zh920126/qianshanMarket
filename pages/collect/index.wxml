@@ -2,14 +2,31 @@
 <!-- 顶部tab栏 -->
 <view class="collect-top">
   <block wx:for="{{collect}}" wx:key="name">
-    <view bind:tap="choseItem" data-index="{{index}}" class="{{index===isShow?'col':''}}">{{item.name}}</view>
+    <view bind:tap="choseItem" data-index="{{index}}" class="{{index===isShow?'col':''}}">
+      {{item.name}}
+    </view>
   </block>
 </view>
 <!-- 全部收藏部分 -->
-<view class="all">
+<view wx:if="{{isShow===0}}" class="all">
   <block wx:for="{{all}}" wx:key="name">
     <view bind:tap="choseCollect" data-index="{{index}}" class="all-item {{index===showRed?'col-all':''}}">
       {{item.name}}
     </view>
   </block>
 </view>
+<!-- 收藏的商品信息 -->
+<block wx:if="{{isShow===0&&showRed===0}}" wx:for="{{collectList}}" wx:key="goods_id">
+  <view class="goods-list">
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+      <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+      <view class="good_info">
+        <view class="good-title">{{item.goods_name}}</view>
+        <view class="good-price">{{item.goods_price}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="del">
+    <text bind:tap="delItem" data-index="{{index}}">删除该项</text>
+  </view>
+</block>
