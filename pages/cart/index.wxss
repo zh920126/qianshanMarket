@@ -5,8 +5,153 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 14rpx solid #eb4500;
 }
 .address .addAddress {
   padding: 15rpx;
   border: 1px solid #ddd;
+}
+.color {
+  height: 20rpx;
+  background-color: #ddd;
+}
+.title {
+  height: 88rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 33rpx;
+  border-bottom: 1px solid #ddd;
+  font-size: 30rpx;
+  color: #333;
+}
+.title icon {
+  margin-right: 15rpx;
+  color: green;
+  font-size: 40rpx;
+}
+.cartList {
+  height: 210rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-bottom: 1px solid #ddd;
+}
+.cartList .left {
+  width: 90rpx;
+}
+.cartList .right {
+  flex: 1;
+  display: flex;
+  font-size: 28rpx;
+  color: #333;
+}
+.cartList .right image {
+  width: 160rpx;
+  margin-right: 20rpx;
+}
+.cartList .right .cart-title {
+  width: 450rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cartList .right .cart-title .title-right {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.cartList .right .cart-title .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartList .right .cart-title .price > text {
+  display: flex;
+  color: #eb4500;
+  font-size: 35rpx;
+}
+.cartList .right .cart-title .price > text::before {
+  content: "￥";
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4rpx;
+  font-size: 20rpx;
+  color: #eb4500;
+}
+.cartList .right .cart-title .price .chosemore {
+  display: flex;
+}
+.cartList .right .cart-title .price .chosemore .reduce,
+.cartList .right .cart-title .price .chosemore .add,
+.cartList .right .cart-title .price .chosemore .count {
+  width: 52rpx;
+  height: 42rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3rpx solid #666;
+}
+.cartList .right .cart-title .price .chosemore .count {
+  border: none;
+  padding: 0rpx 10rpx;
+}
+.accounts {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  border-top: 1px solid #ddd;
+}
+.accounts .choseAll {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 20rpx;
+}
+.accounts .nums .allPrice {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 80rpx;
+}
+.accounts .nums .allPrice text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eb4500;
+  font-size: 35rpx;
+  margin-left: 30rpx;
+}
+.accounts .nums .allPrice text::before {
+  content: "￥";
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4rpx;
+  font-size: 35rpx;
+  color: #eb4500;
+}
+.accounts .nums .yunfei {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 80rpx;
+}
+.accounts .toOrder {
+  width: 230rpx;
+  height: 100%;
+  background-color: #eb4500;
+  font-size: 32rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

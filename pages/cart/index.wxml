@@ -1,6 +1,48 @@
-<!--pages/cart/index.wxml-->
+<!-- pages/cart/index.wxml -->
 <view class="address">
-  <view class="addAddress">
-    +添加收货地址
+  <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">+收货地址</button>
+</view>
+<!-- 分隔层 -->
+<view class="color"></view>
+<!-- title -->
+<view class="title">
+  <icon class="iconfont icon-guanneichaxun" />
+  <text>千山生活馆</text>
+</view>
+<!-- 购物车信息列表 -->
+<block wx:for="{{cartList}}" wx:key="goods_id">
+  <view class="cartList">
+    <view class="left">
+      <checkbox></checkbox>
+    </view>
+    <view class="right">
+        <image lazy-load mode="widthFix" src="{{item.goods_small_logo}}" />
+        <view class="cart-title">
+          <view class="title-right">{{item.goods_name}}</view>
+          <view class="price">
+            <text>{{item.goods_price}}</text>
+            <view class="chosemore">
+              <view class="reduce" bind:tap="reduce" data-index="{{index}}" data-count="{{item.goods_count}}">-</view>
+              <view class="count">{{item.goods_count}}</view>
+              <view class="add" bind:tap="add" data-index="{{index}}"  data-count="{{item.goods_count}}">+</view>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view class="del"></view>
   </view>
+</block>
+<view class="accounts">
+    <checkbox class="choseAll">
+      全选
+    </checkbox>
+    <view class="nums">
+      <view class="allPrice">合计:
+        <text>123</text>
+      </view>
+      <text class="yunfei">包含运费</text>
+    </view>
+    <view class="toOrder">
+      结算(0)
+    </view>
 </view>
