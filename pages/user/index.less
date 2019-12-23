@@ -1,0 +1,124 @@
+/* pages/user/index.wxss */
+page{
+  background-color: #f4f4f4;
+}
+.user{
+  width: 100%;
+  height: 400rpx;
+  background-color: #eb4450;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #fff;
+}
+.userCollect{
+  width: 720rpx;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: -30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  navigator{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.myOrder{
+  width: 720rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #333;
+  .title{
+    height: 88rpx;
+    line-height: 88rpx;
+    padding-left: 30rpx;
+    font-size: 32rpx;
+    border-bottom: 1px solid #ddd;
+  }
+ .order-list{
+   height: 166rpx;
+   display: flex;
+   .order{
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     icon{
+       font-size: 50rpx;
+       color: #eb4450;
+     }
+   }
+ }
+}
+.address{
+  height: 88rpx;
+  width: 720rpx;
+  background-color: #fff;
+  margin: 20rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  text{
+    margin-left: 30rpx;
+    font-size: 30rpx;
+  }
+  icon{
+    margin-right: 30rpx;
+    color: #ccc;
+  }
+  button{
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.server{
+  background-color: #fff;
+  width: 720rpx;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  .contact,.fankui navigator,.about navigator{
+    height: 88rpx;
+    padding: 0rpx 30rpx;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    icon{
+      color: #ccc;
+    }
+  }
+}
+.share{
+  position: relative;
+  width: 720rpx;
+  height: 88rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  line-height: 88rpx;
+  text-indent: 30rpx;
+}

@@ -1,2 +1,66 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- 顶部获取用户信息按钮 -->
+<view class="user">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+<!-- 用户收藏信息列表 -->
+<view class="userCollect">
+  <block wx:for="{{collect}}" wx:key="name">
+    <!-- 点击跳转的时候，还需要传入对应的索引值，一遍收藏页面能获取到对应点额参数，来打开对应的页面 -->
+    <navigator url="/pages/collect/index?index={{index}}">
+      <text>{{item.count}}</text>
+      <text>{{item.name}}</text>
+    </navigator>
+  </block>
+</view>
+<!-- 我的订单 -->
+<view class="myOrder">
+  <view class="title">我的订单</view>
+  <view class="order-list">
+    <block wx:for="{{order}}" wx:key="name">
+      <navigator class="order" url="">
+        <icon class="iconfont {{item.icon}}" />
+        <text>{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
+</view>
+<!-- 收货地址管理 -->
+<view class="address">
+  <text >收货地址管理</text>
+  <icon class="iconfont icon-xiangyou" />
+  <button open-type="openSetting"></button>
+</view>
+<!-- 联系客服栏 -->
+<view class="server">
+  <!-- 联系客服 -->
+  <view class="contact">
+    <text >联系客服</text>
+    <text >400-618-4000</text>
+  </view>
+  <!-- 意见反馈 -->
+  <view class="fankui">
+    <navigator url="/pages/feedback/index">
+    <text >意见反馈</text>
+    <icon class="iconfont icon-xiangyou" />
+    </navigator>
+  </view>
+  <!-- 关于我们 -->
+  <view class="about">
+    <navigator url="/pages/about/index">
+      <text >关于我们</text>
+      <icon class="iconfont icon-xiangyou" />
+    </navigator>
+  </view>
+</view>
+<!-- 把应用推荐给其他人 -->
+<view class="share">
+  把应用推荐给其他人
+</view>

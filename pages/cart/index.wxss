@@ -155,3 +155,27 @@
   justify-content: center;
   align-items: center;
 }
+.nothing {
+  width: 100%;
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nothing .top {
+  width: 185rpx;
+  height: 185rpx;
+  border-radius: 50%;
+  background-color: #c87d5f;
+  margin-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nothing .top icon {
+  font-size: 100rpx;
+  color: #f9e252;
+}
+.nothing .top text {
+  font-size: 28rpx;
+}

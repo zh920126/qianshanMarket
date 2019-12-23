@@ -1,5 +1,6 @@
 <!-- pages/cart/index.wxml -->
-<view class="address">
+<block wx:if="{{cartList.length!==0}}">
+  <view class="address">
   <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">+收货地址</button>
 </view>
 <!-- 分隔层 -->
@@ -42,7 +43,18 @@
       </view>
       <text class="yunfei">包含运费</text>
     </view>
-    <view class="toOrder">
+    <!-- 点击结算跳转到支付页面 -->
+    <view class="toOrder" bind:tap="toOrder">
       结算(0)
     </view>
 </view>
+</block>
+<!-- 当购物车没有数据时，显示购物车为空 -->
+<block wx:else>
+ <view class="nothing">
+   <view class="top">
+    <icon class="iconfont icon-gouwuche1" />
+  </view>
+  <text >你还没有添加任何商品</text>
+ </view>
+</block>

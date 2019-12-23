@@ -33,6 +33,13 @@ Page({
     let {index}=e.currentTarget.dataset
     // console.log(index);
   },
+  //点击结算按钮，跳转到支付页面
+  toOrder(){
+    console.log(123);
+    wx.navigateTo({
+      url:'/pages/order/index'
+    })
+  },
   //获取用户地址
   onGotUserInfo(e){
     // console.log(e);
