@@ -1,2 +1,10 @@
 <!--pages/about/index.wxml-->
-<text>pages/about/index.wxml</text>
+<view class="about">
+  <view class="title">关于我们:</view>
+  <view class="detail">
+    你点这里干啥玩意，这不是你该点的地方，不买东西，乱点什么玩意
+  </view>
+  <view class="author">
+    Mark Zhou
+  </view>
+</view>

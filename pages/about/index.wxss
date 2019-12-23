@@ -1,1 +1,22 @@
 /* pages/about/index.wxss */
+page {
+  background-color: #ddd;
+}
+.about {
+  margin: 200rpx auto;
+  width: 500rpx;
+  color: #333;
+}
+.about .us {
+  font-size: 36rpx;
+}
+.about .detail {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.about .author {
+  display: flex;
+  justify-content: flex-end;
+}
