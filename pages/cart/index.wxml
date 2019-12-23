@@ -36,11 +36,11 @@
           <view class="price">
             <text>{{item.goods_price}}</text>
             <view class="chosemore">
-              <view class="reduce" bind:tap="changeNum" data-index="{{index}}" data-count="{{item.goods_count}}">
+              <view class="reduce" bind:tap="changeNum" data-index="{{index}}" data-count="{{-1}}">
                 -
               </view>
               <view class="count">{{item.goods_count}}</view>
-              <view class="add" bind:tap="changeNum" data-index="{{index}}" data-count="{{item.goods_count}}">
+              <view class="add" bind:tap="changeNum" data-index="{{index}}" data-count="{{1}}">
                 +
               </view>
             </view>
@@ -51,7 +51,7 @@
     </view>
   </block>
   <view class="accounts">
-    <checkbox class="choseAll">全选</checkbox>
+    <checkbox class="choseAll" bind:tap="checkAll" checked="{{checkAll}}">全选</checkbox>
     <view class="nums">
       <view class="allPrice">
         合计:

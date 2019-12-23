@@ -50,13 +50,34 @@ Page({
     this.onLoad()
   },
   //页面一打开就获取到用户收藏的数据
-  onLoad(){
+  onLoad(options){
     //从本地存储中获取用户的收藏数据
     let arr=wx.getStorageSync('collect');
     //将数据赋值给定义好的数据，用于渲染页面
     this.setData({
       collectList:arr
     })
+    //当用户点击路由跳转进来的时候
+    console.log(options);
+    let {index}=options
+    // console.log(index);
+    if(+index===0){
+      this.setData({
+        isShow:2
+      })
+    }else if(+index===1){
+      this.setData({
+        isShow:0
+      })
+    }else if(+index===2){
+      this.setData({
+        isShow:1
+      })
+    }else{
+      this.setData({
+        isShow:+index
+      })
+    }
   },
   //开启下拉刷新
   onPullDownRefresh(){
