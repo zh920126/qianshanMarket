@@ -6,10 +6,49 @@
   justify-content: center;
   align-items: center;
   border-bottom: 14rpx solid #eb4500;
+  padding: 0rpx 30rpx;
 }
-.address .addAddress {
-  padding: 15rpx;
-  border: 1px solid #ddd;
+.address .box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.address .box > view {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.address .box .userName {
+  display: flex;
+}
+.address .box .userName view {
+  display: flex;
+  align-items: center;
+}
+.address .box .userName view:nth-child(1) {
+  margin-right: 30rpx;
+}
+.address .box .userName view:nth-child(2) {
+  margin-right: 100rpx;
+}
+.address .box .userAddress {
+  display: flex;
+}
+.address .box .userAddress view:nth-child(1) {
+  margin-right: 30rpx;
+}
+.address .box .userAddress view:nth-child(2) {
+  width: 540rpx;
+  height: 80rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .color {
   height: 20rpx;
@@ -29,6 +68,9 @@
   margin-right: 15rpx;
   color: green;
   font-size: 40rpx;
+}
+page {
+  margin-bottom: 100rpx;
 }
 .cartList {
   height: 210rpx;
@@ -111,6 +153,7 @@
   bottom: 0rpx;
   left: 0rpx;
   border-top: 1px solid #ddd;
+  background-color: #fff;
 }
 .accounts .choseAll {
   font-size: 28rpx;

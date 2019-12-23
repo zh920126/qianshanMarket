@@ -1,60 +1,74 @@
 <!-- pages/cart/index.wxml -->
 <block wx:if="{{cartList.length!==0}}">
-  <view class="address">
-  <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">+收货地址</button>
-</view>
-<!-- 分隔层 -->
-<view class="color"></view>
-<!-- title -->
-<view class="title">
-  <icon class="iconfont icon-guanneichaxun" />
-  <text>千山生活馆</text>
-</view>
-<!-- 购物车信息列表 -->
-<block wx:for="{{cartList}}" wx:key="goods_id">
-  <view class="cartList">
-    <view class="left">
-      <checkbox></checkbox>
+  <!-- 顶部的地址栏 -->
+  <view class="address" bind:tap="getUserAddress">
+    <!-- 如果没有获取到用户的收货地址，就显示按钮，让用户 -->
+    <button wx:if="{{!userAddress.userName}}">+收货地址</button>
+    <view wx:else class="box">
+      <view class="userName">
+        <view class="getUser">收货人:</view>
+        <view class="username">{{userAddress.userName}}</view>
+        <view class="cellPhone">{{userAddress.telNumber}}</view>
+      </view>
+      <view class="userAddress">
+        <view class="shouhuo">收货地址:</view>
+        <view class="user-address">{{userAddress.provinceName+userAddress.cityName+userAddress.countyName+userAddress.detailInfo}}</view>
+      </view>
     </view>
-    <view class="right">
+  </view>
+  <!-- 分隔层 -->
+  <view class="color"></view>
+  <!-- title -->
+  <view class="title">
+    <icon class="iconfont icon-guanneichaxun" />
+    <text>千山生活馆</text>
+  </view>
+  <!-- 购物车信息列表 -->
+  <block wx:for="{{cartList}}" wx:key="goods_id">
+    <view class="cartList">
+      <view class="left">
+        <checkbox></checkbox>
+      </view>
+      <view class="right">
         <image lazy-load mode="widthFix" src="{{item.goods_small_logo}}" />
         <view class="cart-title">
           <view class="title-right">{{item.goods_name}}</view>
           <view class="price">
             <text>{{item.goods_price}}</text>
             <view class="chosemore">
-              <view class="reduce" bind:tap="reduce" data-index="{{index}}" data-count="{{item.goods_count}}">-</view>
+              <view class="reduce" bind:tap="reduce" data-index="{{index}}" data-count="{{item.goods_count}}">
+                -
+              </view>
               <view class="count">{{item.goods_count}}</view>
-              <view class="add" bind:tap="add" data-index="{{index}}"  data-count="{{item.goods_count}}">+</view>
+              <view class="add" bind:tap="add" data-index="{{index}}" data-count="{{item.goods_count}}">
+                +
+              </view>
             </view>
+          </view>
         </view>
       </view>
+      <view class="del"></view>
     </view>
-    <view class="del"></view>
-  </view>
-</block>
-<view class="accounts">
-    <checkbox class="choseAll">
-      全选
-    </checkbox>
+  </block>
+  <view class="accounts">
+    <checkbox class="choseAll">全选</checkbox>
     <view class="nums">
-      <view class="allPrice">合计:
-        <text>123</text>
+      <view class="allPrice">
+        合计:
+        <text>0</text>
       </view>
       <text class="yunfei">包含运费</text>
     </view>
     <!-- 点击结算跳转到支付页面 -->
-    <view class="toOrder" bind:tap="toOrder">
-      结算(0)
-    </view>
-</view>
+    <view class="toOrder" bind:tap="toOrder">结算(0)</view>
+  </view>
 </block>
 <!-- 当购物车没有数据时，显示购物车为空 -->
 <block wx:else>
- <view class="nothing">
-   <view class="top">
-    <icon class="iconfont icon-gouwuche1" />
+  <view class="nothing">
+    <view class="top">
+      <icon class="iconfont icon-gouwuche1" />
+    </view>
+    <text>你还没有添加任何商品</text>
   </view>
-  <text >你还没有添加任何商品</text>
- </view>
 </block>
