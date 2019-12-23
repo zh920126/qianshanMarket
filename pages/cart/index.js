@@ -8,7 +8,37 @@ Page({
     //获取用户信息数据
     userAddress:wx.getStorageSync('userAddress')||{},
     //获取用户的加入购物车的数据，渲染页面
-    cartList:wx.getStorageSync('cart')||[]
+    cartList:wx.getStorageSync('cart')||[],
+    totalPrice:0,
+    totalCount:0
+  },
+  //封装一个计算总价的函数
+  totalPrice(){
+    //初始化数据
+    let {cartList}=this.data
+    let totalPrice=0
+    let totalCount=0
+    //遍历数组，计算出被选中的商品的价格
+    cartList.forEach(v => {
+      //判断是否被选中
+      if(v.goods_selected){
+        //如果被选中就需要计算他的价格
+        totalPrice+=v.goods_price*v.goods_count
+        totalCount++
+      }
+    });
+    //给数据重新赋值,同时加两个0
+    console.log(totalPrice);
+    this.setData({
+      totalPrice:totalPrice.toFixed(2),
+      totalCount
+    })
+  },
+  //点击选择按钮时
+  check(e){
+    // 获取数据
+    let {index}=e.currentTarget.dataset
+    console.log(index);
   },
   //获取用户数据，并将数据改为.00
   async getNum(){
@@ -83,6 +113,8 @@ Page({
   },
   //页面跳转回来时也需要重新显示数据
   onShow(){
-    this.getNum()
+    this.getNum(),
+    //调用封装的计算价格的函数
+    this.totalPrice()
   }
 })

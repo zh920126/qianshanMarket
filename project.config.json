@@ -63,7 +63,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "pages/goods_detail/index",
 					"pathName": "pages/goods_detail/index",
 					"query": "",
@@ -94,6 +94,7 @@
 					"id": -1,
 					"name": "pages/about/index",
 					"pathName": "pages/about/index",
+					"query": "",
 					"scene": null
 				}
 			]

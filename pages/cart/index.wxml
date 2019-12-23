@@ -27,7 +27,7 @@
   <block wx:for="{{cartList}}" wx:key="goods_id">
     <view class="cartList">
       <view class="left">
-        <checkbox></checkbox>
+        <checkbox bind:tap="check" data-index="{{index}}" checked="{{item.goods_selected}}"></checkbox>
       </view>
       <view class="right">
         <image lazy-load mode="widthFix" src="{{item.goods_small_logo}}" />
@@ -36,11 +36,11 @@
           <view class="price">
             <text>{{item.goods_price}}</text>
             <view class="chosemore">
-              <view class="reduce" bind:tap="reduce" data-index="{{index}}" data-count="{{item.goods_count}}">
+              <view class="reduce" bind:tap="changeNum" data-index="{{index}}" data-count="{{item.goods_count}}">
                 -
               </view>
               <view class="count">{{item.goods_count}}</view>
-              <view class="add" bind:tap="add" data-index="{{index}}" data-count="{{item.goods_count}}">
+              <view class="add" bind:tap="changeNum" data-index="{{index}}" data-count="{{item.goods_count}}">
                 +
               </view>
             </view>
@@ -55,12 +55,12 @@
     <view class="nums">
       <view class="allPrice">
         合计:
-        <text>0</text>
+        <text>{{totalPrice}}</text>
       </view>
       <text class="yunfei">包含运费</text>
     </view>
     <!-- 点击结算跳转到支付页面 -->
-    <view class="toOrder" bind:tap="toOrder">结算(0)</view>
+    <view class="toOrder" bind:tap="toOrder">结算({{totalCount}})</view>
   </view>
 </block>
 <!-- 当购物车没有数据时，显示购物车为空 -->

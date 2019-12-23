@@ -77,7 +77,9 @@ Page({
         goods_price,
         goods_big_logo,
         goods_small_logo,
-        goods_count:1
+        goods_count:1,
+        //添加一项默认选中项，用来计算价格
+        goods_selected:true
       })
     }else{
       //否则就是里面的项已经有了的，就不额外增加一项，只是在家一个数量
