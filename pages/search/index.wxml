@@ -1,2 +1,37 @@
 <!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<!-- 头部搜索框 -->
+<view class="searchBar">
+  <view class="search">
+    <icon type="search" wx:if="{{showIcon}}"/>
+    <input type="text" bindfocus="getFocus" bindblur="blurFoucs" bindinput="getList" placeholder="请输入想搜索的商品">
+
+    </input>
+  </view>
+  <view class="btn" >取消</view>
+</view>
+<!-- 搜索结果框 -->
+<block wx:if="{{goodsList.length>0}}">
+<view class="goods-list">
+  <block wx:for="{{goodsList}}" wx:key="goods_id">
+    <view class="list" bind:tap="gtToDetail" data-goods_id="{{item.goods_id}}">
+      {{item.goods_name}}
+    </view>
+  </block>
+</view>
+</block>
+<!-- 历史记录框 -->
+<block wx:else>
+<view class="history">
+  <view class="history-title">
+    <h3>历史搜索</h3>
+    <icon class="iconfont icon-shanchu1" bind:tap="delHistory"/>
+  </view>
+</view>
+<!-- 历史记录信息 -->
+<view class="history-list">
+  <block wx:for="{{historyList}}" wx:key="item">
+    <view class="hisItem">{{item}}
+    </view>
+  </block>
+</view>
+</block>
