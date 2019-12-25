@@ -1,7 +1,7 @@
 <!-- 顶部获取用户信息按钮 -->
 <view class="user">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
       获取头像昵称
     </button>
     <block wx:else>

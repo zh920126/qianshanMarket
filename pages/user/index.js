@@ -25,53 +25,59 @@ Page({
       {name:'全部订单',icon:'icon-quanbudingdan'}
     ]
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
+  //获取用户登录授权
+  getUserInfo(e){
+    console.log(e);
+    let {detail}=e
+    let {userInfo}=detail
+  //  console.log(detail); 
+  //  console.log(userInfo);
+  //  判断时候已经获取到了用户信息
+    if(userInfo){
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo:true,
+         userInfo
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+      //判断有了之候，发起请求获取code
+      //调用微信登录获取code
+      wx.login({
+        success: (res)=>{
+          console.log(res);
+          let {code}=res
+          // console.log(code);
+          //在获取code之后发送请求获取token
+          app.myAxios({
+            method:'post',
+            url:"/users/wxlogin",
+            data:{
+              encryptedData:detail.encryptedData,
+              rawData:detail.rawData,
+              iv:detail.iv,
+              signature:detail.signature,
+              code:code
+            }
+          }).then(res=>{
+            console.log(res);
+            //将token存起来
+            wx.setStorageSync('token', res.token);
           })
-        } 
+        }
+      });
+    }
+    //同时将用户信息存储到本地存储中去
+    wx.setStorageSync('userInfo', userInfo);
+  },
+  //页面打开时，验证是否已经登录
+  onShow(){
+    //页面 一打开就需要获取用户信息
+    let userInfo=wx.getStorageSync('userInfo');
+    console.log(userInfo);
+    //如果已经登录
+    if(userInfo){
+      this.setData({
+        hasUserInfo:true,
+        userInfo
       })
     }
-    //页面打开就需要获取数据，用来渲染页面
-    let count=wx.getStorageSync('collect').length;
-    // console.log(count);
-    let arr=this.data.collect.map((v,i)=>{
-      if(i===1){
-        v.count=count
-      }
-      return v
-    })
-    // console.log(arr);
-    this.setData({
-      collect:arr
-    })
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   }
 })
