@@ -130,6 +130,7 @@ Page({
     let token=wx.getStorageSync('token');
     if(token){
         //如果有token就继续发送请求
+        //生成订单号
       let res=await this.getOrder(token)
       console.log(res);
       //获取订单号
@@ -143,6 +144,16 @@ Page({
       // console.log(res2);
       //检查订单支付状态
       let res3=await this.checkOrder(order_number,token)
+      console.log(res3);
+      if(res3==='支付成功'){
+        let arr=wx.getStorageSync('hasPay')||[];
+          //解构数据，用于渲染order页面
+        let {order_number,order_price,create_time}=res
+        let obj={order_number,order_price,create_time}
+        arr.push(obj)
+        //存到本地存储中
+        wx.setStorageSync('hasPay', arr);
+      }
       // console.log(res3);
       //重定向到order页面
       wx.showToast({

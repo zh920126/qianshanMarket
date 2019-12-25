@@ -79,5 +79,18 @@ Page({
         userInfo
       })
     }
+    //获取收藏商品数
+    let arr=wx.getStorageSync('collect')||[];
+    let {collect}=this.data
+    console.log(collect[1].count);
+    let arr1 =collect.map((v,i)=>{
+      if(i===1){
+        v.count=arr.length
+      }
+      return v
+    })
+    this.setData({
+      collect:arr1
+    })
   }
 })
