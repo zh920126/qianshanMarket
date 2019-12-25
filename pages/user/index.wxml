@@ -25,7 +25,7 @@
   <view class="title">我的订单</view>
   <view class="order-list">
     <block wx:for="{{order}}" wx:key="name">
-      <navigator class="order" url="/pages/order/index">
+      <navigator class="order" url="/pages/order/index?index={{index}}">
         <icon class="iconfont {{item.icon}}" />
         <text>{{item.name}}</text>
       </navigator>

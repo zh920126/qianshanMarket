@@ -1,40 +1,79 @@
-<!--pages/order/index.wxml-->
+<!-- pages/order/index.wxml -->
 <!-- 顶部筛选组件 -->
 <view class="order-top">
   <block wx:for="{{list}}" wx:key="item">
-    <view class="item {{index===isShow?'on':''}}" bind:tap="chose" data-index="{{index}}">{{item}}</view>
+    <view class="item {{index===isShow?'on':''}}" bind:tap="chose" data-index="{{index}}">
+      {{item}}
+    </view>
   </block>
 </view>
 <!-- 分割线 -->
 <view class="line"></view>
-<!-- 全部商品页 -->
-<block wx:if="{{isShow===0}}" wx:for="{{orderList}}" wx:key="goods_id">
-  <view class="goods-list">
-    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
-    <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
-    <view class="good_info">
-      <view class="good-title">
-      {{item.goods_name}}
+<!-- 全部 -->
+<block wx:if="{{isShow===0}}">
+  <view class="allList">
+    <block wx:for="{{hasPay}}" wx:key="order_number">
+      <view class="all">
+        <view class="num">
+          <text>订单编号</text>
+          <text>{{item.order_number}}</text>
+        </view>
+        <view class="price">
+          <text>订单价格</text>
+          <text>{{item.order_price}}</text>
+        </view>
+        <view class="data">
+          <text>订单日期</text>
+          <text>{{item.create_time}}</text>
+        </view>
       </view>
-      <view class="good-price">
-        <text >{{item.goods_price}}</text>
-        <text >x{{item.goods_count}}</text>
-      </view>
-    </view>
-    </navigator>
-</view>
-<!-- 小计 -->
-<view class="subtotal">
-  共{{item.goods_count}}件商品 
-  总计：￥{{item.goods_count*item.goods_price}}(含运费0.00)
-</view>
-<!-- 订单号 -->
-<view class="orderNum">
-  <view class="num">
-    <text >订单号:</text>
-    <text >121212</text>
+    </block>
   </view>
-  <view class="pay">支付</view>
-</view>
 </block>
-
+<!-- 待付款页面 -->
+<block wx:elif="{{isShow===1}}">
+  <block wx:for="{{orderList}}" wx:key="goods_id">
+    <view class="goods-list">
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+        <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+        <view class="good_info">
+          <view class="good-title">{{item.goods_name}}</view>
+          <view class="good-price">
+            <text>{{item.goods_price}}</text>
+            <text>x{{item.goods_count}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <!-- 小计 -->
+    <view class="subtotal">
+      共{{item.goods_count}}件商品 
+  总计：￥{{item.goods_count*item.goods_price}}(含运费0.00)
+    </view>
+    <!-- 订单号 -->
+    <view class="orderNum">
+      <view class="pay" bind:tap="toPay" data-index="{{index}}">支付</view>
+    </view>
+  </block>
+</block>
+<!-- 已付款 -->
+<block wx:elif="{{isShow===2}}">
+  <view class="allList">
+    <block wx:for="{{hasPay}}" wx:key="order_number">
+      <view class="all">
+        <view class="num">
+          <text>订单编号</text>
+          <text>{{item.order_number}}</text>
+        </view>
+        <view class="price">
+          <text>订单价格</text>
+          <text>{{item.order_price}}</text>
+        </view>
+        <view class="data">
+          <text>订单日期</text>
+          <text>{{item.create_time}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</block>

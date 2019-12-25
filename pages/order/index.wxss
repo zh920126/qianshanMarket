@@ -80,7 +80,7 @@
   height: 88rpx;
   display: flex;
   padding: 0rpx 16rpx;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 30rpx solid #f4f4f4;
   color: #666;
@@ -94,4 +94,23 @@
   align-items: center;
   border-radius: 10rpx;
   color: #eb4450;
+}
+.allList {
+  width: 100%;
+}
+.allList .all {
+  height: 120rpx;
+  widows: 100%;
+  padding: 20rpx 16rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+.allList .all view {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
