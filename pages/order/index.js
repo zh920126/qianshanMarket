@@ -6,7 +6,7 @@ import regeneratorRuntime, { values } from '../../lib/runtime/runtime';
 Page({
   data:{
     list:['全部','待付款','已付款','退款/退货'],
-    isShow:1,
+    isShow:0,
     orderList:[],
     hasPay:[]
   },
@@ -48,7 +48,6 @@ Page({
         sec= '0'+sec
       }
       v.create_time=year+'/'+month+'/'+days+' '+hours+':'+mins+':'+sec
-      console.log(data);
       return v
     })
     console.log(new Date(1577282874));
@@ -73,5 +72,33 @@ Page({
     wx.navigateTo({
       url: '/pages/pay/index'
     });
+  },
+  //从user页面跳过来时，获取参数
+  onLoad(options){
+    //获取传过来的参数
+    let {index}=options
+    let {isShow}=this.data
+    console.log(index);
+    if(+index===0){
+      this.setData({
+        isShow:1
+      })
+    }
+    if(+index===1){
+      this.setData({
+        isShow:2
+      })
+    }
+    if(+index===2){
+      console.log(123);
+      this.setData({
+        isShow:3
+      })
+    }
+    if(+index===3){
+      this.setData({
+        isShow:0
+      })
+    }
   }
 })
