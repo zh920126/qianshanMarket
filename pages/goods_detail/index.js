@@ -98,9 +98,17 @@ Page({
   },
   //点击立即购买时,将数据追加过去,然后跳转到订单页面
   buy(){
-    //点击时，将数据存储到本地储存中去
-    let arr=[]
-    arr.push(this.data.goodDetail)
+    let {goods_id,goods_name,goods_price,goods_big_logo,goods_small_logo}=this.data.goodDetail
+    let arr= []
+      arr.push({
+        goods_id,
+        goods_name,
+        goods_price,
+        goods_big_logo,
+        goods_small_logo,
+        goods_count:1,
+        goods_selected:true
+      })
     wx.setStorageSync('buy',arr)
     //跳转到订单页面
     wx.navigateTo({

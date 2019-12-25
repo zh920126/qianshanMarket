@@ -69,8 +69,8 @@ Page({
         goods:arr1
       },
       // 请求头中添加token
-      headers:{
-        "Authorization":"Bearer "+token
+      header:{
+        "Authorization":token
       }
     }).then(res=>{
       console.log(res);
