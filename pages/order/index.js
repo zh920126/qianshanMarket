@@ -6,7 +6,8 @@ import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
   data:{
     list:['全部','待付款','已付款','退款/退货'],
-    isShow:0
+    isShow:0,
+    orderList:[]
   },
   //点击顶部的筛选按钮
   chose(e){
@@ -15,6 +16,13 @@ Page({
     console.log(index);
     this.setData({
       isShow:index
+    })
+  },
+  //从本地存储中获取数据
+  onLoad(){
+    let orderList=wx.getStorageSync('cart');
+    this.setData({
+      orderList
     })
   }
 })
