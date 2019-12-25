@@ -6,7 +6,7 @@ import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
   data:{
     payList:[],
-    userAddress:wx.getStorageSync('userAddress'),
+    userAddress:{},
     totalPrice:0,
     totalCount:0
   },
@@ -14,13 +14,15 @@ Page({
   onLoad(){
     //获取被选中的数据
     let arr=wx.getStorageSync('buy')|| wx.getStorageSync('cart');
+    let userAddress=wx.getStorageSync('userAddress')||{};
     //筛选出被选中需要支付的商品
     let payList= arr.filter(v=>{
       return v.goods_selected===true
     })
     //赋值，用于渲染页面
     this.setData({
-      payList
+      payList,
+      userAddress
     })
     // console.log(payList);
     // 获取总价格与总数量

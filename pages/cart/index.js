@@ -140,10 +140,21 @@ Page({
     if(arr.length){
       //在购物车中跳转时，就需要删除之前的一项存到本地储存中的数据
       wx.removeStorageSync('buy');
-      //有选中商品时就跳转到支付页面
-      wx.navigateTo({
-        url: '/pages/pay/index'
-      });
+      //同时还需要验证是否已选择地址
+      let {userAddress}=this.data
+      if(userAddress.userName){
+        //有选中商品并且已经选择地址时就跳转到支付页面
+        wx.navigateTo({
+          url: '/pages/pay/index'
+        });
+      }else{
+        wx.showToast({
+          title: '请选择收货地址',
+          icon: 'none',
+          duration: 1500,
+          mask: true,
+        });
+      }
     }else{
       wx.showToast({
         title: '请选择商品',
