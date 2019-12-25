@@ -84,5 +84,9 @@ Page({
     this.setData({
       historyList:[]
     })
+  },
+  //点击取消时
+  cancle(){
+    
   }
 })

@@ -7,7 +7,7 @@
 
     </input>
   </view>
-  <view class="btn" >取消</view>
+  <view class="btn" bind:tap="cancle">取消</view>
 </view>
 <!-- 搜索结果框 -->
 <block wx:if="{{goodsList.length>0}}">
@@ -35,3 +35,5 @@
   </block>
 </view>
 </block>
+<!-- 使用自定义组件 -->
+<searchbar/>

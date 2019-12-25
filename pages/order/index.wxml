@@ -1,2 +1,9 @@
 <!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<!-- 顶部筛选组件 -->
+<view class="order-top">
+  <block wx:for="{{list}}" wx:key="item">
+    <view class="item {{index===isShow?'on':''}}" bind:tap="chose" data-index="{{index}}">{{item}}</view>
+  </block>
+</view>
+<!-- 分割线 -->
+<view class="line"></view>

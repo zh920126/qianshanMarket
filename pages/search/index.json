@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "searchbar":"/components/weui-miniprogram/searchbar/searchbar"
+  }
 }
