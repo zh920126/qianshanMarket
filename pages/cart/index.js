@@ -127,10 +127,31 @@ Page({
   },
   //点击结算按钮，跳转到支付页面
   toOrder(){
-    console.log(123);
-    wx.navigateTo({
-      url:'/pages/order/index'
+    // console.log(123);
+    // 跳转之前需要验证是否选择过商品，如果没有就无法跳转
+    let {cartList}=this.data
+    let arr=cartList.filter(v=>{
+      if(v.goods_selected){
+        return v
+      }
     })
+    // console.log(arr);
+    //判断是否已选中商品
+    if(arr.length){
+      //在购物车中跳转时，就需要删除之前的一项存到本地储存中的数据
+      wx.removeStorageSync('buy');
+      //有选中商品时就跳转到支付页面
+      wx.navigateTo({
+        url: '/pages/pay/index'
+      });
+    }else{
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      });
+    }
   },
   //获取用户地址信息
   getUserAddress(){

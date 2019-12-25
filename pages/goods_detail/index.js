@@ -104,7 +104,7 @@ Page({
     wx.setStorageSync('buy',arr)
     //跳转到订单页面
     wx.navigateTo({
-      url: '/pages/order/index'
+      url: '/pages/pay/index'
     });
   },
   //打开页面就需要获取到商品的ID，进行数据的获取

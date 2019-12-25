@@ -1,1 +1,148 @@
 /* pages/pay/index.wxss */
+.address {
+  width: 100%;
+  height: 210rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 14rpx solid #eb4500;
+  padding: 0rpx 30rpx;
+}
+.address .box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.address .box > view {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+.address .box .userName {
+  display: flex;
+}
+.address .box .userName view {
+  display: flex;
+  align-items: center;
+}
+.address .box .userName view:nth-child(1) {
+  margin-right: 30rpx;
+}
+.address .box .userName view:nth-child(2) {
+  margin-right: 100rpx;
+}
+.address .box .userAddress {
+  display: flex;
+}
+.address .box .userAddress view:nth-child(1) {
+  margin-right: 30rpx;
+}
+.address .box .userAddress view:nth-child(2) {
+  width: 540rpx;
+  height: 80rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.goods-list {
+  height: 260rpx;
+  margin-left: 20rpx;
+  padding: 30rpx 35rpx 30rpx 0rpx;
+  border-bottom: 1px solid #ddd;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+.goods-list navigator {
+  display: flex;
+}
+.goods-list navigator image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 30rpx;
+}
+.goods-list navigator .good_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods-list navigator .good_info .good-title {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.goods-list navigator .good_info .good-price {
+  color: #eb4500;
+  font-size: 35rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.goods-list navigator .good_info .good-price text:nth-child(1)::before {
+  content: "￥";
+  padding-bottom: 4rpx;
+  font-size: 20rpx;
+  color: #eb4500;
+}
+.goods-list navigator .good_info .good-price text:nth-child(2) {
+  font-size: 18rpx;
+  color: #666;
+}
+.accounts {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+.accounts .nums .allPrice {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 80rpx;
+}
+.accounts .nums .allPrice text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eb4500;
+  font-size: 35rpx;
+  margin-left: 30rpx;
+}
+.accounts .nums .allPrice text::before {
+  content: "￥";
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4rpx;
+  font-size: 35rpx;
+  color: #eb4500;
+}
+.accounts .nums .yunfei {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 80rpx;
+}
+.accounts .toOrder {
+  width: 230rpx;
+  height: 100%;
+  background-color: #eb4500;
+  font-size: 32rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

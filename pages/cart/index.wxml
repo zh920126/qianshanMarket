@@ -17,7 +17,7 @@
     </view>
   </view>
   <!-- 分隔层 -->
-  <view class="color"></view>
+  <view class="color"></view> 
   <!-- title -->
   <view class="title">
     <icon class="iconfont icon-guanneichaxun" />

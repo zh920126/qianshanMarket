@@ -1,2 +1,45 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!-- 顶部用户地址栏 -->
+<view class="address">
+<view class="box">
+  <view class="userName">
+    <view class="getUser">收货人:</view>
+    <view class="username">{{userAddress.userName}}</view>
+    <view class="cellPhone">{{userAddress.telNumber}}</view>
+  </view>
+  <view class="userAddress">
+    <view class="shouhuo">收货地址:</view>
+    <view class="user-address">
+      {{userAddress.provinceName+userAddress.cityName+userAddress.countyName+userAddress.detailInfo}}
+    </view>
+  </view>
+</view>
+</view>
+<!-- 购买商品信息列表 -->
+<block wx:for="{{payList}}" wx:key="goods_id">
+  <view class="goods-list">
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+    <image lazy-load src="{{item.goods_big_logo ||' https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3008142408,2229729459&fm=26&gp=0.jpg'}}" />
+    <view class="good_info">
+      <view class="good-title">
+      {{item.goods_name}}
+      </view>
+      <view class="good-price">
+        <text >{{item.goods_price}}</text>
+        <text >x{{item.goods_count}}</text>
+      </view>
+    </view>
+    </navigator>
+</view>
+</block>
+<!-- 支付 -->
+ <view class="accounts">
+    <view class="nums">
+      <view class="allPrice">
+        合计:
+        <text>{{totalPrice}}</text>
+      </view>
+      <text class="yunfei">包含运费</text>
+    </view>
+    <!-- 点击结算跳转到支付页面 -->
+    <view class="toOrder" bind:tap="toPay">结算({{totalCount}})</view>
+  </view>

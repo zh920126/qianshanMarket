@@ -1,0 +1,158 @@
+/* pages/pay/index.wxss */
+.address{
+  width: 100%;
+  height: 210rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 14rpx solid #eb4500;
+  padding:0rpx 30rpx;
+  .box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    >view{
+      flex: 1;
+      width: 100%;
+      height: 100%;
+    }
+    .userName{
+      display: flex;
+      view{
+        display: flex;
+        align-items: center;
+        &:nth-child(1){
+          margin-right: 30rpx;
+        }
+        &:nth-child(2){
+          margin-right: 100rpx;
+        }
+      }
+    }
+    .userAddress{
+      display: flex;
+      view{
+        &:nth-child(1){
+          margin-right: 30rpx;
+        }
+        &:nth-child(2){
+          width: 540rpx;
+          height: 80rpx;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+.goods-list{
+  height: 260rpx;
+  margin-left: 20rpx;
+  padding: 30rpx 35rpx 30rpx 0rpx;
+  border-bottom: 1px solid #ddd;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  navigator{
+    display: flex;
+    image{
+      width: 200rpx;
+      height: 200rpx;
+      margin-right: 30rpx;
+    }
+    .good_info{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .good-title{
+        word-break:break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      .good-price{
+        display: flex;
+        color: #eb4500;
+        font-size: 35rpx;
+        display: flex;
+        justify-content: space-between;
+        text{
+          &:nth-child(1){
+            &::before{
+              content: "￥";
+              padding-bottom: 4rpx;
+              font-size: 20rpx;
+              color: #eb4500;
+            }
+          }
+          &:nth-child(2){
+            font-size: 18rpx;
+            color: #666;
+          }
+        }
+      }
+    
+    }
+  }
+}
+.accounts{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  .nums{
+    .allPrice{
+      font-size: 28rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 80rpx;
+      text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #eb4500;
+        font-size: 35rpx;
+        margin-left: 30rpx;
+        &::before{
+          content: "￥";
+          display: flex;
+          align-items: flex-end;
+          padding-bottom: 4rpx;
+          font-size: 35rpx;
+          color: #eb4500;
+        }
+      }
+    }
+    .yunfei{
+      font-size: 22rpx;
+      color: #999;
+      margin-left: 80rpx;
+    }
+  }
+  .toOrder{
+    width: 230rpx;
+    height: 100%;
+    background-color: #eb4500;
+    font-size: 32rpx;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
